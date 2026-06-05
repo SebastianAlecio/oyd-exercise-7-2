@@ -3,4 +3,4 @@ resource "aws_sqs_queue" "main" {
   visibility_timeout_seconds = var.visibility_timeout_seconds
 }
 
-# Pipeline evidence: ejercicio 7.2 — comentario trivial
+# Pipeline evidence: ejercicio 7.2 — corrida con branch protection activa

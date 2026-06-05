@@ -94,12 +94,17 @@ En `Settings → Environments`:
 1. **`dev`** — sin reglas de protección.
 2. **`staging`** — activar **Required reviewers** y agregar al owner del repo como reviewer.
 
-### Branch protection (opcional pero recomendado)
+### Branch protection
 
-En `Settings → Branches → Add branch protection rule` para `main`:
+Implementada vía **Repository ruleset** sobre `main` (`Settings → Rules → Rulesets → Protect Main Branch`):
 
-- Require a pull request before merging
-- Require status checks to pass: `terraform-fmt`, `terraform-validate`, `terraform-plan`
+- Block deletions y non-fast-forward pushes.
+- **Require a pull request before merging** — todo cambio entra por PR.
+- **Require status checks to pass** — los 3 checks de la pipeline son obligatorios antes de mergear:
+  - `terraform-fmt`
+  - `terraform-validate`
+  - `terraform-plan`
+- `strict_required_status_checks_policy: true` — la rama del PR debe estar al día con `main` antes de poder mergear.
 
 ## Cómo verificar (Task 4)
 
