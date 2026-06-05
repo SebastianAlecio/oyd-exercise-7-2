@@ -96,7 +96,7 @@ En `Settings → Environments`:
 
 ### Branch protection
 
-Implementada vía **Repository ruleset** sobre `main` (`Settings → Rules → Rulesets → Protect Main Branch`):
+En `Settings → Rules → Rulesets → New branch ruleset`, crear un ruleset sobre `main` con:
 
 - Block deletions y non-fast-forward pushes.
 - **Require a pull request before merging** — todo cambio entra por PR.
@@ -104,7 +104,7 @@ Implementada vía **Repository ruleset** sobre `main` (`Settings → Rules → R
   - `terraform-fmt`
   - `terraform-validate`
   - `terraform-plan`
-- `strict_required_status_checks_policy: true` — la rama del PR debe estar al día con `main` antes de poder mergear.
+- **Require branches to be up to date before merging** (strict) — la rama del PR debe estar al día con `main` antes de poder mergear.
 
 ## Cómo verificar (Task 4)
 
